@@ -1,0 +1,124 @@
+body {
+    background-color: rgb(187, 252, 187);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 55px;
+}
+
+nav ul li {
+    /* display: inline-block; */
+    padding: 0 15px;
+}
+
+.brand img {
+    width: 55px;
+    padding: 0 5px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.container {
+    min-height: 67vh;
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    margin: 20px auto;
+    width: 75%;
+    border-radius: 15px;
+    padding: 10px;
+    background-image: url("images/bg_img.jpg");
+}
+
+.bottom {
+    position: sticky;
+    height: 120px;
+    background-color: black;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.icons {
+    margin: 10px;
+}
+
+.icons i {
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+#progressBar {
+    width: 80%;
+    cursor: pointer;
+}
+
+.songItemContainer {
+    margin-top: 30px;
+}
+
+.songList {
+    margin-left: 10px;
+}
+
+.songItem {
+    height: 50px;
+    display: flex;
+    background-color: white;
+    color: black;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.songItem img {
+    width: 50px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+.time {
+    margin: 0 10px;
+}
+
+.time i {
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+.songInfo {
+    position: absolute;
+    left: 10vw;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.songInfo img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
