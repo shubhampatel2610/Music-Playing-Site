@@ -8,39 +8,39 @@ var songItems = Array.from(document.getElementsByClassName("songItem"));
 var currentSong = document.getElementsByClassName("songItemPlay");
 
 var songs = [{
-        songName: "DS1",
+        songName: "Demon Slayer Opening",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/DemonSlayer.jpg"
     },
     {
-        songName: "DS2",
+        songName: "Kamado Tanjirou No Uta",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/DemonSlayer.jpg"
     },
     {
-        songName: "DS3",
+        songName: "Death Note L Theme",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/DeathNote.jpg"
     },
     {
-        songName: "DS4",
+        songName: "Naruto Main Theme",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/Naruto.jpg"
     },
     {
-        songName: "DS5",
+        songName: "Naruto Sadness And Sorrow",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/Naruto.jpg"
     },
     {
-        songName: "DS6",
+        songName: "Bleach Eternal Raijin - La Espada",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/Bleach.jpg"
     },
     {
-        songName: "DS7",
+        songName: "Your name - スパークル",
         filePath: "songs/song1.mp3",
-        coverPath: "images/cover_img.jpg"
+        coverPath: "images/YourName.jpg"
     },
 ]
 
@@ -64,8 +64,6 @@ masterPlay.addEventListener("click", function () {
     }
 });
 
-
-
 //Listen events
 audioElement.addEventListener("timeupdate", function () {
     var progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
@@ -85,18 +83,26 @@ function makeAllPlays() {
 
 Array.from(document.getElementsByClassName("songItemPlay")).forEach(function (element) {
     element.addEventListener("click", function (e) {
-        makeAllPlays();
-        songIndex = parseInt(e.target.id);
-        e.target.classList.remove("fa-play");
-        e.target.classList.add("fa-pause");
-        audioElement.src = "songs/song" + songIndex + ".mp3";
-        masterSongName.innerText = songs[songIndex].songName;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        gif.style.opacity = 1;
-        masterPlay.classList.remove("fa-play");
-        masterPlay.classList.add("fa-pause");
+        if (audioElement.paused || audioElement.currentTime <= 0) {
+            makeAllPlays();
+            songIndex = parseInt(e.target.id);
+            e.target.classList.remove("fa-play");
+            e.target.classList.add("fa-pause");
+            audioElement.src = "songs/song" + songIndex + ".mp3";
+            masterSongName.innerText = songs[songIndex].songName;
+            audioElement.play();
+            gif.style.opacity = 1;
+
+        } else {
+            audioElement.pause();
+            e.target.classList.remove("fa-pause");
+            e.target.classList.add("fa-play");
+            gif.style.opacity = 0;
+        }
+
     });
+
+
 });
 
 
